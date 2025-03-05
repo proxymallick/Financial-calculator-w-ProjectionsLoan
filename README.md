@@ -5,7 +5,6 @@ This Streamlit application combines two distinct tools into a single, user-frien
 2. **Hobby - Historical Treaties and Territorial Evolution**: An interactive visualization of treaties and territorial changes involving the US, Russia/USSR, and Ukraine up to March 01, 2025.
 
 **Current Date**: March 05, 2025  
-**Developed By**: [Your Name or "xAI Team"]  
 **Built With**: Python, Streamlit, NumPy, Pandas, Plotly
 
 ---
@@ -45,7 +44,7 @@ This Streamlit application combines two distinct tools into a single, user-frien
    ```bash
    git clone <repository-url>
    cd <repository-name>
-   
+
 Requirements
 ------------
 
