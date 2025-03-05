@@ -683,7 +683,7 @@ def hobby_page():
 
 def main():
     st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Select Page", ["Personal Finance Cal", "Hobby"])
+    page = st.sidebar.radio("Select Page", ["Hobby", "Personal Finance Cal"])
     
     if page == "Personal Finance Cal":
         personal_finance_calculator()
