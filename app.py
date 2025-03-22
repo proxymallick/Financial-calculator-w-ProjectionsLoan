@@ -336,7 +336,7 @@ def render_map(selected_year):
 def personal_finance_calculator():
     st.title("Personal Finance Calculators")
     
-    page = st.sidebar.radio("Select Calculator", ["Novated Lease", "Mortgage"])
+    page = st.sidebar.radio("Select Calculator", ["Mortgage" , "Novated Lease" ])
     
     if page == "Novated Lease":
         st.title('Car Ownership vs Novated Lease Comparison')
@@ -681,14 +681,118 @@ def hobby_page():
         st.markdown("---")
         st.markdown("Created for educational purposes, updated March 01, 2025.")
 
+
+# New AI/ML Page
+def ai_ml_page():
+    st.title("AI & ML: A Cosmic Journey Through Learning Paradigms")
+    st.markdown("""
+    Imagine AI and ML as a vast galaxy, where stars (methods) shine with unique brilliance, orbiting around the twin suns of **Mathematics** and **Statistics**, with gravitational pulls from **Electrical Engineering** and **Information Theory**. Let's explore this universe!
+    """)
+
+    # Venn Diagram-like Visualization
+    st.subheader("The Cosmic Overlap")
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=[1, 2, 3, 2], y=[2, 2, 2, 1], mode='text', text=['AI/ML', 'Stats/Math', 'EE/IT', 'Overlap'], textposition='middle center', showlegend=False))
+    fig.add_shape(type="circle", xref="x", yref="y", x0=0.5, y0=1.5, x1=1.5, y1=2.5, line_color="blue", fillcolor="rgba(0, 0, 255, 0.2)", label=dict(text="AI/ML"))
+    fig.add_shape(type="circle", xref="x", yref="y", x0=1.5, y0=1.5, x1=2.5, y1=2.5, line_color="green", fillcolor="rgba(0, 255, 0, 0.2)", label=dict(text="Stats/Math"))
+    fig.add_shape(type="circle", xref="x", yref="y", x0=2.5, y0=1.5, x1=3.5, y1=2.5, line_color="red", fillcolor="rgba(255, 0, 0, 0.2)", label=dict(text="EE/IT"))
+    fig.update_layout(title="Overlap of Disciplines", height=400, width=600, showlegend=False)
+    st.plotly_chart(fig, use_container_width=True, key="ai_ml_overlap")
+    st.markdown("*AI/ML is a spaceship fueled by Stats/Math engines and guided by EE/IT navigation systems!*")
+
+    # Main AI/ML Methods
+    st.subheader("The Star Clusters of AI/ML")
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        with st.expander("Supervised Learning: The Guided Navigator"):
+            st.markdown("""
+            Like a captain with a map, supervised learning uses labeled data (stars with names) to chart a course. 
+            - **Math/Stats**: Regression (y = mx + b) and classification (decision boundaries) steer the ship.
+            - **Examples**: Predicting house prices, spam detection.
+            - **Overlap**: EE uses signal processing to preprocess data; IT optimizes data encoding.
+            """)
+            fig = px.scatter(x=[1, 2, 3], y=[1, 2, 1], color=['Label A', 'Label B', 'Label A'], title="Supervised Learning")
+            st.plotly_chart(fig, key="supervised_fig")
+    
+    with col2:
+        with st.expander("Unsupervised Learning: The Cosmic Explorer"):
+            st.markdown("""
+            An astronaut without a map, unsupervised learning finds patterns in unlabeled data (uncharted stars).
+            - **Math/Stats**: Clustering (k-means) and dimensionality reduction (PCA) reveal hidden constellations.
+            - **Examples**: Customer segmentation, anomaly detection.
+            - **Overlap**: EE’s circuit analysis inspires feature extraction; IT’s compression aligns with data reduction.
+            """)
+            fig = px.scatter(x=np.random.rand(50), y=np.random.rand(50), title="Unsupervised Clustering")
+            st.plotly_chart(fig, key="unsupervised_fig")
+
+    col3, col4 = st.columns(2)
+    
+    with col3:
+        with st.expander("Reinforcement Learning: The Galactic Adventurer"):
+            st.markdown("""
+            A spacefarer learning by trial and error, reinforcement learning optimizes actions via rewards.
+            - **Math/Stats**: Markov processes and dynamic programming calculate the best path.
+            - **Examples**: Game playing (AlphaGo), robotics.
+            - **Overlap**: EE’s control theory designs reward systems; IT’s decision theory shapes policies.
+            """)
+            fig = go.Figure(go.Scatter(x=[1, 2, 3], y=[0, 1, 2], mode='lines+markers', name="Reward Path"))
+            st.plotly_chart(fig, key="reinforcement_fig")
+    
+    with col4:
+        with st.expander("Self-Supervised Learning: The Reflective Stargazer"):
+            st.markdown("""
+            A telescope that learns from its own reflections, self-supervised learning generates labels from data itself.
+            - **Math/Stats**: Autoencoders and contrastive loss map the cosmos.
+            - **Examples**: Language models (BERT), image pretraining.
+            - **Overlap**: EE’s signal reconstruction mirrors data generation; IT’s entropy guides self-labeling.
+            """)
+            fig = px.line(x=[1, 2, 3], y=[1, 0, 1], title="Self-Supervised Curve")
+            st.plotly_chart(fig, key="self_supervised_fig")
+
+    # Model-Based vs Model-Free
+    st.subheader("The Galactic Philosophies")
+    col5, col6 = st.columns(2)
+    
+    with col5:
+        with st.expander("Model-Based: The Cosmic Architect"):
+            st.markdown("""
+            Building a blueprint of the universe, model-based methods predict outcomes using an internal model.
+            - **Math/Stats**: Differential equations and Bayesian inference construct the model.
+            - **Examples**: Robotics planning, economic forecasting.
+            - **Overlap**: EE’s system modeling aligns here; IT’s simulation theory supports predictions.
+            """)
+            fig = go.Figure(go.Scatter(x=[1, 2, 3], y=[1, 2, 3], mode='lines', name="Predicted Path"))
+            st.plotly_chart(fig, key="model_based_fig")
+    
+    with col6:
+        with st.expander("Model-Free: The Instinctive Voyager"):
+            st.markdown("""
+            Navigating without a map, model-free methods learn directly from experience.
+            - **Math/Stats**: Q-learning and policy gradients drive decisions.
+            - **Examples**: Game AI, autonomous driving.
+            - **Overlap**: EE’s adaptive filters inspire learning; IT’s real-time systems optimize speed.
+            """)
+            fig = go.Figure(go.Scatter(x=[1, 2, 3], y=[1, 1.5, 1], mode='lines', name="Learned Path"))
+            st.plotly_chart(fig, key="model_free_fig")
+
+    # Closing Note
+    st.markdown("""
+    ### The Interstellar Dance
+    AI/ML is a symphony of disciplines: **Stats/Math** provides the rhythm, **EE** the instruments, and **IT** the stage. Whether guided by labels or exploring the unknown, these methods illuminate the universe of data!
+    """)
+
+# Main Function with Navigation
 def main():
     st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Select Page", ["Hobby", "Personal Finance Cal"])
+    page = st.sidebar.radio("Select Page", ["Hobby", "AI/ML", "Personal Finance Cal"])
     
-    if page == "Personal Finance Cal":
-        personal_finance_calculator()
-    elif page == "Hobby":
+    if page == "Hobby":
         hobby_page()
+    elif page == "AI/ML":
+        ai_ml_page()
+    elif page == "Personal Finance Cal":
+        personal_finance_calculator()
 
 if __name__ == "__main__":
     main()
